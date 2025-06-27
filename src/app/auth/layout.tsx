@@ -1,13 +1,16 @@
+// Check if user is authenticated and if user is admin
+// If not, redirect to /auth
+
 import { createClient } from '@/supabase/server';
-import { ReactNode } from 'react';
 import { redirect } from 'next/navigation';
+import { ReactNode } from 'react';
 import { ADMIN } from '@/constants/constants';
 
-export default async function RootLayout({
+export default async function AuthLayout({
   children,
-}: Readonly<{ children: ReactNode }>) {
-  // TODO: Check if user is authenticated and if user is admin
-
+}: Readonly<{
+  children: ReactNode;
+}>) {
   const supabase = await createClient();
 
   const {
@@ -27,7 +30,7 @@ export default async function RootLayout({
     }
 
     if (data.type === ADMIN) {
-      return redirect('/');
+      return redirect('/admin');
     }
   }
 
