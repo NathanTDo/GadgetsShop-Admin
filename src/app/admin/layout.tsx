@@ -2,8 +2,11 @@ import { createClient } from '@/supabase/server';
 import { ReactNode } from 'react';
 import { redirect } from 'next/navigation';
 import { ADMIN } from '@/constants/constants';
+import { RenderMounted } from '@/components/render-mounter';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
 
-export default async function RootLayout({
+export default async function AdminLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   // TODO: Check if user is authenticated and if user is admin
@@ -31,5 +34,11 @@ export default async function RootLayout({
     }
   }
 
-  return <>{children}</>;
+  return (
+    <RenderMounted>
+      <Header />
+      <main className="min-h-[calc(100svh-128px])]">{children}</main>
+      <Footer />
+    </RenderMounted>
+  );
 }
