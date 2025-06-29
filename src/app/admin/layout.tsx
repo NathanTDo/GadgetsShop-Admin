@@ -30,14 +30,14 @@ export default async function AdminLayout({
     }
 
     if (data.type === ADMIN) {
-      return redirect('/');
+      return redirect('/admin');
     }
   }
 
   return (
     <RenderMounted>
       <Header />
-      <main className="min-h-[calc(100svh-128px])]">{children}</main>
+      <main className="min-h-[calc(100svh-128px)] py-3">{children}</main>
       <Footer />
     </RenderMounted>
   );
