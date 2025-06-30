@@ -1,10 +1,9 @@
 import { createClient } from '@/supabase/server';
 import { getCategoriesWithProducts } from '@/actions/categories';
+import { CategoryPageComponent } from './page-component';
 
 export default async function Categories() {
-  // const categories = await getCategoriesWithProducts();
+  const categories = await getCategoriesWithProducts();
 
-  // console.log(categories);
-
-  return <>Categories</>;
+  return <CategoryPageComponent categories={categories} />;
 }

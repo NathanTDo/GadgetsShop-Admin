@@ -9,7 +9,7 @@ export const getCategoriesWithProducts =
   async (): Promise<CategoriesWithProductsResponse> => {
     const { data, error } = await supabase
       .from('category')
-      .select('*, product(*)')
+      .select('*, products:product(*)')
       .returns<CategoriesWithProductsResponse>();
 
     if (error) {

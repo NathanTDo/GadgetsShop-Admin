@@ -1,19 +1,18 @@
 export type Product = {
-  category: number;
-  created_at: string;
-  hero_image: string;
-  id: string;
-  image_url: string;
-  max_quantity: number;
-  price: number;
+  id: number;
   title: string;
   slug: string;
+  imagesUrl: string;
+  price: number;
+  maxQuantity: number;
+  heroImage: string;
+  category: number;
 };
 
 export type CategoryWithProducts = {
   created_at: string;
   id: string;
-  image_url: string;
+  imageUrl: string;
   products: Product[];
   name: string;
   slug: string;
